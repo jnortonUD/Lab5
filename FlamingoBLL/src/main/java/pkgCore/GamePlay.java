@@ -30,16 +30,16 @@ public abstract class GamePlay {
 		while (it.hasNext()) {
 			Map.Entry pair = (Map.Entry) it.next();
 			Player p = (Player) pair.getValue();
-
-			//TODO: Add the player to the game
+			this.hmGamePlayers.put(p.getPlayerID(),p);
 		}
 
 		switch (eGameType) {
 		case BLACKJACK:
-			//TODO: Set the game deck to the existing passed-in deck
+			this.dGameDeck = dGameDeck;
 			break;
+			
 		case POKER:
-			//TODO: Set the game deck to a brand new deck
+			this.dGameDeck = new Deck();
 			break;
 		}
 	}
@@ -56,7 +56,7 @@ public abstract class GamePlay {
 		return hmGamePlayers;
 	}
 
-	private HashMap<GamePlayerHand, Hand> getHmGameHands() {
+	protected HashMap<GamePlayerHand, Hand> getHmGameHands() {
 		return hmGameHands;
 	}
 
